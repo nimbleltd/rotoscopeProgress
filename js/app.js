@@ -112,7 +112,7 @@
     var _storage = this.storage();
 
     _storage[ this.kernal.currentTime().toFixed(1) + ''] = this.context.canvas.toDataURL();
-    
+    console.log(this.context.canvas.toDataURL());
     localStorage.setItem('Rotoscoper', JSON.stringify( _storage ));
 
     //this.context.clearRect(0, 0, 600, 335)

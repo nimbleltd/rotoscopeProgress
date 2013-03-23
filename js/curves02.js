@@ -232,9 +232,9 @@
 	function Dragging(e) {
 		if (drag) {
 			//e = MousePos(e);
-			console.log(e)
-			point1[drag].x += e.x - dPoint.x;
-			point1[drag].y += e.y - dPoint.y;
+			console.log(this)
+			this['point'+drag[drag.length - 1]][drag].x += e.x - dPoint.x;
+			this['point'+drag[drag.length - 1]][drag].y += e.y - dPoint.y;
 			dPoint = e;
 			DrawCanvas();
 		}

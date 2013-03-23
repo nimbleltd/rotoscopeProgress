@@ -92,6 +92,7 @@
 		// curve
 		ctx.lineWidth = style.curve.width;
 		ctx.strokeStyle = style.curve.color;
+		ctx.fillStyle = '#00ff00';
 		ctx.beginPath();
 		ctx.moveTo(point.p1.x, point.p1.y);
 		if (point.cp2) {
@@ -115,6 +116,7 @@
 			ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p4.x, point.p4.y);
 		}
 		ctx.stroke();
+		ctx.fill();
 
 		// control points
 		for (var p in point) {
