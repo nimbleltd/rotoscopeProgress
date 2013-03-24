@@ -14,33 +14,46 @@
 
 (function() {
 
-	var canvas, ctx, code, point, style, drag = null, dPoint;
+	var canvas, ctx, code, point, styleGreen, styleRed, drag = null, dPoint;
 
 	// define initial points
 	function Init(quadratic) {
 
 		point = {
-			p1: { x:100, y:250 },
-			p2: { x:400, y:250 },
-			p3: { x:300, y:150 },
-			p4: { x:150, y:150 }
+			//The Green LightSaber
+			p1: { x:130, y:240 },
+			p2: { x:150, y:260 },
+			p3: { x:580, y:120 },
+			p4: { x:570, y:100 },
+
+			//The Red LightSaber
+			p5: { x:530, y:240 },
+			p6: { x:580, y:260 },
+			p7: { x:150, y:120 },
+			p8: { x:130, y:100 }
+
 		};
 		
 		// if (quadratic) {
 		// 	point.cp1 = { x: 250, y: 100 };
 		// }
 		// else {
-		 	point.cp1 = { x: 220, y: 180 };
-		// 	point.cp2 = { x: 350, y: 100 };
+		 	point.cp1 = { x: 600, y: 100 };
+		 	point.cp2 = { x: 155, y: 125 };
 		// 	point.cp3 = { x: 250, y: 200 };
 		// 	point.cp4 = { x: 200, y: 175 };
 		// }
 		
 		// default styles
-		style = {
-			curve:	{ width: 6, color: "#333" },
+		styleGreen = {
+			curve:	{ width: 3, color: "#333" },
 			cpline:	{ width: 1, color: "#C00" },
-			point: { radius: 10, width: 2, color: "#900", fill: "rgba(200,200,200,0.5)", arc1: 0, arc2: 2 * Math.PI }
+			point: { radius: 10, width: 2, color: "#333", fill: "rgba(200,200,200,0.1)", arc1: 0, arc2: 2 * Math.PI }
+		}
+		styleRed = {
+			curve:	{ width: 3, color: "#2EDCFF" },
+			cpline:	{ width: 1, color: "#CC0" },
+			point: { radius: 10, width: 2, color: "#333", fill: "rgba(000,000,254,0.5)", arc1: 0, arc2: 2 * Math.PI }
 		}
 		
 		// line style defaults
@@ -89,12 +102,13 @@
 		// }
 		// ctx.stroke();
 		
-		// No Control Point Lines!
+		// Green Saber Lines!
 		// ******* TEST ************
-		ctx.lineWidth = style.curve.width;
-		ctx.strokeStyle = style.curve.color;
-		ctx.fillStyle = '#f0f8ff';
-		ctx.shadowBlur = 20;
+		ctx.lineWidth = styleGreen.curve.width;
+		ctx.strokeStyle = styleGreen.curve.color;
+		ctx.fillStyle = '#ffffff';
+		//ctx.fillStyle = '#f0f8ff';
+		ctx.shadowBlur = 75;
 		ctx.shadowColor = "#00ff00";
 		//ctx.globalAlpha = 1.0;
 		ctx.beginPath();
@@ -119,6 +133,39 @@
 		ctx.stroke();
 		ctx.fill();
 		// ******* END: TEST ************
+
+
+		// Blue Saber Lines!
+		// ******* TEST ************
+		ctx.lineWidth = styleRed.curve.width;
+		ctx.strokeStyle = styleRed.curve.color;
+		ctx.fillStyle = '#ffffff';
+		//ctx.fillStyle = '#f0f8ff';
+		ctx.shadowBlur = 75;
+		ctx.shadowColor = "#0934E0"; //Blue
+		//ctx.shadowColor = "#FF0000"; //Red
+		//ctx.globalAlpha = 1.0;
+		ctx.beginPath();
+		ctx.moveTo(point.p5.x, point.p5.y);
+		if (point.p6) {
+			ctx.lineTo(point.p6.x, point.p6.y);
+		}
+		if (point.p7) {
+			ctx.lineTo(point.p7.x, point.p7.y);
+		}
+		if (point.p8) {
+			ctx.quadraticCurveTo(point.cp2.x, point.cp2.y, point.p8.x, point.p8.y);			
+			ctx.lineTo(point.p5.x, point.p5.y);
+		}
+		// if (point.cp1) {
+		// 	ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p1.x, point.p1.y);
+		// }
+		ctx.stroke();
+		ctx.fill();
+		// ******* END: TEST ************
+
+
+
 
 		// curve		
 		// ctx.lineWidth = style.curve.width;
@@ -195,11 +242,11 @@
 
 		// Draw the control points
 		for (var p in point) {
-			ctx.lineWidth = style.point.width;
-			ctx.strokeStyle = style.point.color;
-			ctx.fillStyle = style.point.fill;
+			ctx.lineWidth = styleGreen.point.width;
+			ctx.strokeStyle = styleGreen.point.color;
+			ctx.fillStyle = styleGreen.point.fill;
 			ctx.beginPath();
-			ctx.arc(point[p].x, point[p].y, style.point.radius, style.point.arc1, style.point.arc2, style.point.arc3, style.point.arc4, true);
+			ctx.arc(point[p].x, point[p].y, styleGreen.point.radius, styleGreen.point.arc1, styleGreen.point.arc2, styleGreen.point.arc3, styleGreen.point.arc4, true);
 			ctx.fill();
 			ctx.stroke();
 		}
@@ -235,7 +282,7 @@
 		for (var p in point) {
 			dx = point[p].x - e.x;
 			dy = point[p].y - e.y;
-			if ((dx * dx) + (dy * dy) < style.point.radius * style.point.radius) {
+			if ((dx * dx) + (dy * dy) < styleGreen.point.radius * styleGreen.point.radius) {
 				drag = p;
 				dPoint = e;
 				canvas.style.cursor = "move";
@@ -261,6 +308,7 @@
 	function DragEnd(e) {
 		drag = null;
 		canvas.style.cursor = "default";
+		//canvas.styleRed.cursor = "default";
 		DrawCanvas();
 	}
 
@@ -280,7 +328,7 @@
 	code = document.getElementById("code");
 	if (canvas.getContext) {
 		ctx = canvas.getContext("2d");
-		Init(canvas.className == "quadratic");
+		Init(canvas.className == "bezier");
 	}
 	
 })(); 

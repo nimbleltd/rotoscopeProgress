@@ -44,25 +44,25 @@
 
     }); 
 
-    this.initMouse();
+    // this.initMouse();
   
     return this;
   }
 
-  Frame.prototype.initMouse = function() {
-    var self = this;
-    //set pX and pY from first click
-    this.canvas
-      .bind('mousedown', function( e ) {
+  // Frame.prototype.initMouse = function() {
+  //   var self = this;
+  //   //set pX and pY from first click
+  //   this.canvas
+  //     .bind('mousedown', function( e ) {
 
-        self.setAnchorPoint( e );
+  //       self.setAnchorPoint( e );
 
-      })
-      .bind('mouseup', function( e ){
-        self.canvas
-          .unbind('mousemove')
-      })
-  };
+  //     })
+  //     .bind('mouseup', function( e ){
+  //       self.canvas
+  //         .unbind('mousemove')
+  //     })
+  // };
 
   Frame.prototype.setAnchorPoint = function( e ) {
     var self = this;
