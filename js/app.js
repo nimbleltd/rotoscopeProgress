@@ -116,7 +116,7 @@
     localStorage.setItem('Rotoscoper', JSON.stringify( _storage ));
 
     //this.context.clearRect(0, 0, 600, 335)
-    this.context.clearRect(0, 0, 848, 360)
+    this.context.clearRect(0, 0, 960, 540)
   };    
 
   Frame.prototype.throttle = function( time ) {
@@ -154,7 +154,7 @@
     
     //  Clear last frame
     //this.context.clearRect( 0, 0, 600, 335 );
-    this.context.clearRect( 0, 0, 848, 360 );      
+    this.context.clearRect( 0, 0, 960, 540 );      
 
     var frame, $img;
 
@@ -177,7 +177,7 @@
     this.frames.last = frame;
     
     //this.context.drawImage( $img, 0, 0, 600, 335 );
-    this.context.drawImage( $img, 0, 0, 848, 360 );
+    this.context.drawImage( $img, 0, 0, 960, 540 );
 
   };
 
@@ -189,10 +189,10 @@ $(function(){
   var video = $('<video>', {
         id: 'subject',
         // src: 'trailer.ogv',
-        src: 'video/startrek.mov',
+        src: 'video/SaberMeBattle.mov',
         css:{
           //width: 600,
-          width: 848,
+          width: 960,
           position: 'absolute',
           top: 0,
           left: 0,
