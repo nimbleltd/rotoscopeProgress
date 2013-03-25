@@ -111,7 +111,7 @@
 
     var _storage = this.storage();
 
-    _storage[ this.kernal.currentTime().toFixed(1) + ''] = this.context.canvas.toDataURL();
+    _storage[ ((this.kernal.currentTime().toFixed( 1 ))*10) + ''] = this.context.canvas.toDataURL();
     console.log(this.context.canvas.toDataURL());
     localStorage.setItem('Rotoscoper', JSON.stringify( _storage ));
 
@@ -145,7 +145,7 @@
 
   Frame.prototype.render = function( time ) {
 
-    time = this.kernal.currentTime().toFixed( 1 );
+    time = ((this.kernal.currentTime().toFixed( 1 ))*10);
 
     //  Update time display 
     if ( this.hasTimeDisplay ) {
@@ -264,7 +264,7 @@ $(function(){
         )
       );
 
-      $('#time').html( kernal.currentTime().toFixed(1) );
+      $('#time').html( ((kernal.currentTime().toFixed( 1 ))*10) );
 
     });
     

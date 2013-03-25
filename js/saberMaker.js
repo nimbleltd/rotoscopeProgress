@@ -1,15 +1,13 @@
  /* 
- * Canvas curves example
- *
- * By Craig Buckler,		http://twitter.com/craigbuckler
- * of OptimalWorks.net		http://optimalworks.net/
- * for SitePoint.com		http://sitepoint.com/
+ * Code by Paul Campbell, based on
+ * Craig Buckler, "Canvas curves example"
  * 
- * Refer to:
- * http://blogs.sitepoint.com/html5-canvas-draw-quadratic-curves/
- * http://blogs.sitepoint.com/html5-canvas-draw-bezier-curves/
+ * Re-written to allow for rotoscoping of sabers
+ * 
+ * 
+ * 
  *
- * This code can be used without restriction. 
+ *  
  */
 
 (function() {
@@ -253,27 +251,7 @@
 		
 	//	ShowCode();
 	}
-	
-	
-	// show canvas code
-	// function ShowCode() {
-	// 	if (code) {
-	// 		code.firstChild.nodeValue = 
-	// 			"canvas = document.getElementById(\"canvas\");\n"+
-	// 			"ctx = canvas.getContext(\"2d\")\n"+
-	// 			"ctx.lineWidth = " + style.curve.width +
-	// 			";\nctx.strokeStyle = \"" + style.curve.color +
-	// 			"\";\nctx.beginPath();\n" +
-	// 			"ctx.moveTo(" + point.p1.x + ", " + point.p1.y +");\n" +
-	// 			(point.cp2 ? 
-	// 				"ctx.bezierCurveTo("+point.cp1.x+", "+point.cp1.y+", "+point.cp2.x+", "+point.cp2.y+", "+point.p2.x+", "+point.p2.y+");" :
-	// 				"ctx.quadraticCurveTo("+point.cp1.x+", "+point.cp1.y+", "+point.p2.x+", "+point.p2.y+");"
-	// 			) +
-	// 			"\nctx.stroke();"
-	// 		;
-	// 	}
-	// }
-	
+			
 	
 	// start dragging
 	function DragStart(e) {
