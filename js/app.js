@@ -1,4 +1,7 @@
 /*
+ * Code edited by Paul Campbell to record rotoscoping of saber effect
+ *
+ *
  * Rotoscoper app.js
  * https://github.com/boazsender/Rotoscoper
  *
@@ -48,21 +51,6 @@
   
     return this;
   }
-
-  // Frame.prototype.initMouse = function() {
-  //   var self = this;
-  //   //set pX and pY from first click
-  //   this.canvas
-  //     .bind('mousedown', function( e ) {
-
-  //       self.setAnchorPoint( e );
-
-  //     })
-  //     .bind('mouseup', function( e ){
-  //       self.canvas
-  //         .unbind('mousemove')
-  //     })
-  // };
 
   Frame.prototype.setAnchorPoint = function( e ) {
     var self = this;
@@ -115,8 +103,7 @@
     console.log(this.context.canvas.toDataURL());
     localStorage.setItem('Rotoscoper', JSON.stringify( _storage ));
 
-    //this.context.clearRect(0, 0, 600, 335)
-    this.context.clearRect(0, 0, 960, 540)
+    this.context.clearRect(0, 0, 960, 540) // Dimensions of Video
   };    
 
   Frame.prototype.throttle = function( time ) {
@@ -153,7 +140,6 @@
     }
     
     //  Clear last frame
-    //this.context.clearRect( 0, 0, 600, 335 );
     this.context.clearRect( 0, 0, 960, 540 );      
 
     var frame, $img;
@@ -176,7 +162,6 @@
 
     this.frames.last = frame;
     
-    //this.context.drawImage( $img, 0, 0, 600, 335 );
     this.context.drawImage( $img, 0, 0, 960, 540 );
 
   };
@@ -188,10 +173,8 @@
 $(function(){
   var video = $('<video>', {
         id: 'subject',
-        // src: 'trailer.ogv',
         src: 'video/SaberMeBattle.mov',
         css:{
-          //width: 600,
           width: 960,
           position: 'absolute',
           top: 0,

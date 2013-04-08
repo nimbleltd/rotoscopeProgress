@@ -1,7 +1,8 @@
  /* 
- * Code by Paul Campbell, based on
- * Craig Buckler, "Canvas curves example"
- * 
+ * Code by Paul Campbell,  This proof of concept 
+ * based on Craig Buckler's,
+ * "Canvas Bezier Curves Example"
+ * http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html
  * Re-written to allow for rotoscoping of sabers
  * 
  * 
@@ -70,38 +71,9 @@
 	// draw canvas
 	function DrawCanvas() {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		
-		// control lines
-		// ctx.lineWidth = style.cpline.width;
-		// ctx.strokeStyle = style.cpline.color;
-		// ctx.beginPath();
-		// ctx.moveTo(point.p1.x, point.p1.y);
-		// ctx.lineTo(point.cp1.x, point.cp1.y);
-		// if (point.cp2) {
-		// 	ctx.moveTo(point.p2.x, point.p2.y);
-		// 	ctx.lineTo(point.cp2.x, point.cp2.y);
-		// }
-		// else {
-		// 	ctx.lineTo(point.p2.x, point.p2.y);
-		// }
-		// if (point.cp3) {
-		// 	ctx.moveTo(point.p3.x, point.p3.y);
-		// 	ctx.lineTo(point.cp3.x, point.cp3.y);
-		// }
-		// else {
-		// 	ctx.lineTo(point.p3.x, point.p3.y);
-		// }
-		// if (point.cp4) {
-		// 	ctx.moveTo(point.p4.x, point.p4.y);
-		// 	ctx.lineTo(point.cp4.x, point.cp4.y);
-		// }
-		// else {
-		// 	ctx.lineTo(point.p4.x, point.p4.y);
-		// }
-		// ctx.stroke();
-		
+				
 		// Green Saber Lines!
-		// ******* TEST ************
+		// ********************
 		ctx.lineWidth = styleGreen.curve.width;
 		ctx.strokeStyle = styleGreen.curve.color;
 		ctx.fillStyle = '#ffffff';
@@ -111,30 +83,23 @@
 		//ctx.globalAlpha = 1.0;
 		ctx.beginPath();
 		ctx.moveTo(point.p1.x, point.p1.y);
-		//ctx.lineTo(point.cp1.x, point.cp1.y);
 		if (point.p2) {
 			ctx.lineTo(point.p2.x, point.p2.y);
-			//ctx.lineTo(point.cp2.x, point.cp2.y);
 		}
 		if (point.p3) {
 			ctx.lineTo(point.p3.x, point.p3.y);
-			//ctx.lineTo(point.cp3.x, point.cp3.y);
 		}
 		if (point.p4) {
 			ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p4.x, point.p4.y);			
-			//ctx.lineTo(point.p4.x, point.p4.y);
 			ctx.lineTo(point.p1.x, point.p1.y);
 		}
-		// if (point.cp1) {
-		// 	ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p1.x, point.p1.y);
-		// }
 		ctx.stroke();
 		ctx.fill();
-		// ******* END: TEST ************
+		// ******* END: Green Saber ************
 
 
 		// Blue Saber Lines!
-		// ******* TEST ************
+		// ******************
 		ctx.lineWidth = styleRed.curve.width;
 		ctx.strokeStyle = styleRed.curve.color;
 		ctx.fillStyle = '#ffffff';
@@ -155,87 +120,10 @@
 			ctx.quadraticCurveTo(point.cp2.x, point.cp2.y, point.p8.x, point.p8.y);			
 			ctx.lineTo(point.p5.x, point.p5.y);
 		}
-		// if (point.cp1) {
-		// 	ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p1.x, point.p1.y);
-		// }
+
 		ctx.stroke();
 		ctx.fill();
-		// ******* END: TEST ************
-
-
-
-
-		// curve		
-		// ctx.lineWidth = style.curve.width;
-		// ctx.strokeStyle = style.curve.color;
-		// ctx.fillStyle = '#f0f8ff';
-		// ctx.shadowBlur = 20;
-		// ctx.shadowColor = "#00ff00";
-		// ctx.globalAlpha = 1.0;
-		// ctx.beginPath();
-		// ctx.moveTo(point.p1.x, point.p1.y);
-		// if (point.cp2) {
-		// 	ctx.bezierCurveTo(point.cp1.x, point.cp1.y, point.cp2.x, point.cp2.y, point.p2.x, point.p2.y);
-		// }
-		// else {
-		// 	ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p2.x, point.p2.y);
-		// }
-		// if (point.cp3) {
-		// 	ctx.bezierCurveTo(point.cp2.x, point.cp2.y, point.cp3.x, point.cp3.y, point.p3.x, point.p3.y);
-		// }
-		// else {
-		// 	ctx.quadraticCurveTo(point.cp2.x, point.cp2.y, point.p3.x, point.p3.y);
-		// }
-		// if (point.cp4) {
-		// 	ctx.bezierCurveTo(point.cp3.x, point.cp3.y, point.cp4.x, point.cp4.y, point.p4.x, point.p4.y);
-		// 	ctx.bezierCurveTo(point.cp4.x, point.cp4.y, point.cp1.x, point.cp1.y, point.p1.x, point.p1.y);
-		// }
-		// else {
-		// 	ctx.quadraticCurveTo(point.cp3.x, point.cp3.y, point.p4.x, point.p4.y);
-		// 	ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p4.x, point.p4.y);
-		// }
-		// ctx.stroke();
-		// ctx.fill();
-
-
-		// curve
-		// ******* TEST ************
-		// ctx.lineWidth = style.curve.width;
-		// ctx.strokeStyle = style.curve.color;
-		// ctx.fillStyle = '#f0f8ff';
-		// ctx.shadowBlur = 20;
-		// ctx.shadowColor = "#00ff00";
-		// //ctx.globalAlpha = 1.0;
-		// ctx.beginPath();
-		// ctx.moveTo(point.p1.x, point.p1.y);
-		// if (point.cp2) {
-		// 	ctx.moveTo(point.p2.x, point.p2.y);
-		// }
-		// // else {
-		// // 	ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p2.x, point.p2.y);
-		// //}
-		// if (point.cp3) {
-		// 	ctx.moveTo(point.p3.x, point.p3.y);
-		// }
-		// // else {
-		// // 	ctx.quadraticCurveTo(point.cp2.x, point.cp2.y, point.p3.x, point.p3.y);
-		// //}
-		// if (point.cp4) {
-		// 	ctx.moveTo(point.p4.x, point.p4.y);
-		// 	ctx.moveTo(point.p1.x, point.p1.y);
-		// }
-		// // else {
-		// // 	ctx.quadraticCurveTo(point.cp3.x, point.cp3.y, point.p4.x, point.p4.y);
-		// // 	ctx.quadraticCurveTo(point.cp1.x, point.cp1.y, point.p4.x, point.p4.y);
-		// //}
-		// ctx.stroke();
-		// ctx.fill();
-		// ******* END: TEST ************
-
-
-
-
-
+		// ******* END: Blue Saber ************
 
 
 		// Draw the control points
@@ -249,7 +137,6 @@
 			ctx.stroke();
 		}
 		
-	//	ShowCode();
 	}
 			
 	
@@ -286,7 +173,6 @@
 	function DragEnd(e) {
 		drag = null;
 		canvas.style.cursor = "default";
-		//canvas.styleRed.cursor = "default";
 		DrawCanvas();
 	}
 
