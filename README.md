@@ -12,7 +12,7 @@ Also, using Boaz Senders [rotoscope example](http://static.bocoup.com/code/popco
 
 In the end
 ----------
-Combining these two methods I was able to demonstrate that it is possible to rotoscope in the browser.
+Combining these two methods I was able to demonstrate that it is possible to rotoscope in the browser. Yeah!
 
 Next:
 -----
