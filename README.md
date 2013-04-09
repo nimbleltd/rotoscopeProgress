@@ -7,7 +7,7 @@ canvas to allow a browser user to create a lightsaber effect.
 
 Using [this](http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html) example from Craig Butler
 I learned how to create controls and linetypes.  With guidance from my [mentor](https://github.com/cade) 
-he demoed how to fill in the shape. From there I add a drop shadow (for lightsaber glow).
+he demonstrated how to fill in the shape. From there I add a drop shadow (for lightsaber glow).
 
 Also, using Boaz Senders [rotoscope example](http://static.bocoup.com/code/popcorn.js/Rotoscoper/) to capture the roto for each image.
 
