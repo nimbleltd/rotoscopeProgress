@@ -17,7 +17,7 @@ Combining these two methods I was able to demonstrate that it is possible to rot
 
 To Further develop:
 -----
-Rewrite app.js to work with a proper Database and not use locaStorage(), would like to store control points
+- Rewrite app.js to work with a proper Database and not use locaStorage(), would like to store control points
 and not the image itself, a png.
-Export out a resulting coposited movie.
-ect...
+- Export out a resulting coposited movie.
+- ect...
