@@ -3,7 +3,7 @@ Rotoscope in the Browser:
 a.k.a. lightsaber effect in the browser
 
 Goal: create a prototype to prove one can provide controls and a lightsaber style 
-canvas to allow a browser user to create a lightsaber effect.
+canvas over the top of a video to allow a user to create a lightsaber effect in the browser.
 
 Using [this](http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html) example from Craig Butler
 I learned how to create controls and linetypes.  With guidance from my [mentor](https://github.com/cade) 
